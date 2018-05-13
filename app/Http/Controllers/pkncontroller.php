@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\mahasiswa;
 
 class pkncontroller extends Controller
 {
@@ -13,7 +14,8 @@ class pkncontroller extends Controller
      */
     public function index()
     {
-        //
+        $mahasiswas = mahasiswa::all();
+        return view('mahasiswa.index');
     }
 
     /**
@@ -34,7 +36,31 @@ class pkncontroller extends Controller
      */
     public function store(Request $request)
     {
-        //
+    $nim=$request-> input('nim');
+        
+   $nama=$request-> input('nama');
+        
+   $alamat=$request-> input('alamat');
+        
+   $jurusan=$request-> input('jurusan');
+
+   $jenis_kelamin=$request->input('jenis_kelamin');
+
+        $foto=$request->file('foto');
+        $foto = $foto->getClientOriginalName();
+        $request->foto->storeAs('public/upload',$foto);
+     
+        $mahasiswa = new mahasiswa;
+        $mahasiswa ->nim = $nim;
+        $mahasiswa ->nama = $nama;
+        $mahasiswa ->alamat = $alamat;
+        $mahasiswa ->jurusan= $jurusan;
+        $mahasiswa ->jenis_kelamin= $jenis_kelamin;
+        $mahasiswa ->foto =$foto;
+        $mahasiswa->save();
+        return back(); 
+        
+     
     }
 
     /**

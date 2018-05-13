@@ -44,7 +44,35 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </a>
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
+
         <ul class="nav navbar-nav">
+           @guest
+                           <button class="btn btn-info">  <li color='red'> <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li></button>
+                        
+
+
+                           <button class="btn btn-info"> <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li></button>
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+
+     
           <!-- Messages: style can be found in dropdown.less-->
           <li class="dropdown messages-menu">
             <!-- Menu toggle button -->
@@ -169,8 +197,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="mid image">
-          <img src="{{asset('AdminLTE-2.4.3/dist/img/Logo_umm.png')}}" class="img-circle" alt="User Image" 
-        >
+          <img src="{{asset('AdminLTE-2.4.3/dist/img/Logo_umm.png')}}" class="img-circle" alt="User Image" >
+          <label style="text-decoration-color: white">UMM</label>
         </div>
         <div class="pull-left info">
          
@@ -194,7 +222,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
        <ul class="sidebar-menu" data-widget="tree">
        
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="{{url('mahasiswa')}}"><i class="fa fa-link"></i> <span>Daftar</span></a></li>
+        <li class="active"><a href="{{url('/home')}}"><i class="fa fa-link"></i> <span>Daftar</span></a></li>
           
 
           </ul>
@@ -208,31 +236,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h3>
-       <center>Selamat Datang</center>
-        <br><center><small>Di Website Resmi Pendaftaran Mahasiswa PKN</small></center></br>
-      </h3>
-     
-    </section>
-
+   
     <!-- Main content -->
     <section class="content container-fluid">
+      @yield('content')
 
-     
+    
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- To the right -->
-    <div class="pull-right hidden-xs">
-    
-    </div>
-   
-  </footer>
+  
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -245,14 +260,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="tab-content">
       <!-- Home tab content -->
       <div class="tab-pane active" id="control-sidebar-home-tab">
-        <h3 class="control-sidebar-heading">Recent Activity</h3>
+       
         <ul class="control-sidebar-menu">
           <li>
             <a href="javascript:;">
-              <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+             
 
               <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+              
 
                 <p></p>
               </div>
@@ -261,14 +276,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </ul>
         <!-- /.control-sidebar-menu -->
 
-        <h3 class="control-sidebar-heading">Tasks Progress</h3>
+       
         <ul class="control-sidebar-menu">
           <li>
             <a href="javascript:;">
               <h4 class="control-sidebar-subheading">
-                Custom Template Design
+                
                 <span class="pull-right-container">
-                    <span class="label label-danger pull-right">70%</span>
+                
                   </span>
               </h4>
 

@@ -28,7 +28,7 @@
   <td>{{$mod->nim}}</td>
   <td>{{$mod->nama}}</td>
   <td>{{$mod->jenis_kelamin}}</td>
-  <td>{{$mod->alamat}}</td>
+  <td>{{$mod->alamat}}</td>	
   <td>{{$mod->jurusan}}</td>
   <td><img src="{{asset('storage/upload/')}}/{{$mod->foto}}" style="width:50px;height: 50px;" ></td>
   
@@ -68,8 +68,18 @@
 
          <div class="form-group">
           <label for="nama">Jenis Kelamin</label>
-          <input type="text" class="form-control" name="jenis_kelamin" id="jenis_kelamin"> </div>
-         
+          <div class="radio">
+            <label>
+              <input type="radio" name="jenis_kelamin" id="jenis_kelamin" value="Laku-laki">
+              Laki-laki
+            </label>
+            <label style="padding-left: 50px;">
+              <input type="radio" name="jenis_kelamin" id="jenis_kelamin" value="Permpuan">
+              Permpuan
+            </label>
+          </div>
+          </div>
+          
         <div class="form-group">
           <label for="alamat">Alamat</label>
           <input type="text" class="form-control" name="alamat" id="alamat"> </div>

@@ -23,10 +23,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
+
 
   <!-- Main Header -->
-  <header class="main-header">
+  <header class="main-he  ader">
 
     <!-- Logo -->
     <a href="index2.html" class="logo">
@@ -47,11 +47,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <ul class="nav navbar-nav">
            @guest
-                           <button class="btn btn-info">  <li color='red'> <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li></button>
+                             <li color='red'> <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                         
 
 
-                           <button class="btn btn-info"> <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li></button>
+                           <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -236,9 +236,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Selamat Datang
+        <small>Di Website Resmi Pendaftara PKN</small>
+      </h1>
+
    
     <!-- Main content -->
     <section class="content container-fluid">
+
       @yield('content')
 
     

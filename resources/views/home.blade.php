@@ -26,7 +26,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
   <!-- Main Header -->
-  <header class="main-he  ader">
+  <header class="main-header">
 
     <!-- Logo -->
     <a href="index2.html" class="logo">

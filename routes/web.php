@@ -20,6 +20,8 @@ Route::get('/login', function () {
 
 Auth::routes();
 
+Route::post('/update','pkncontroller@update');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('mahasiswa','pkncontroller');

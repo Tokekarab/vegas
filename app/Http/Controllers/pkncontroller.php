@@ -92,9 +92,21 @@ class pkncontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $mahasiswa = \DB::table('mahasiswas')->select('nim')->where('nim',$request->input('nim'));
+        $foto=$request->file('foto')->getClientOriginalName();
+        $request->file('foto')->storeAs('public/upload',$foto);
+
+
+        $mahasiswa->update( ['foto'=> $foto]);            
+        $mahasiswa->update( ['nama'=>$request->input('nama')]);
+        $mahasiswa->update( ['alamat'=>$request->input('alamat')]);
+        $mahasiswa->update( ['jurusan'=>$request->input('jurusan')]);
+        $mahasiswa->update( ['jenis_kelamin'=>$request->input('jurusan')]);
+
+
+        return back();
     }
 
     /**
@@ -103,8 +115,10 @@ class pkncontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy( Request $request)
     {
-        //
+         $mahasiswa = \DB::table('mahasiswas')->select('nim')->where('nim',$request->input('nim'));
+         $mahasiswa->delete();
+       return back();
     }
 }

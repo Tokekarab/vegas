@@ -333,11 +333,48 @@ scratch. This page gets rid of all links and provides the needed markup only.
   immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
+
+
  
  <script src="{{asset('AdminLTE-2.4.3/bower_components/jquery/dist/jquery.min.js')}}"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="{{asset('AdminLTE-2.4.3/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('AdminLTE-2.4.3/dist/js/adminlte.min.js')}}"></script>
+
+<script>
+ $('#edit').on ('show.bs.modal', function (event) {
+  
+  var button = $(event.relatedTarget) 
+  var nim = button.data('mynim')
+  var nama = button.data('mynama')
+  var jurusan = button.data('myjurusan')
+  var jenis_kelamin = button.data('myjeniskelamin')
+  var alamat = button.data('myalamat') 
+  var modal = $(this)
+
+  
+  modal.find('.modal-body #nim').val(nim);
+  modal.find('.modal-body #nama').val(nama);
+  modal.find('.modal-body #jurusan').val(jurusan);
+  modal.find('.modal-body #jeniskelamin').val(jenis_kelamin);
+  modal.find('.modal-body #alamat').val(alamat);
+
+})
+
+$('#delete').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) 
+
+  var nim = button.data('mynim')
+ 
+  var modal = $(this)
+
+  
+  modal.find('.modal-body #nim').val(nim);
+  
+
+})
+</script>
+
 </body>
 </html>
